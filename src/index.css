@@ -53,8 +53,8 @@
   }
   h1 {
     @apply text-5xl;
-    @apply uppercase;
-    @apply tracking-wide;
+
+    @apply tracking-wider;
     @apply mb-4;
     @apply font-black;
   }
@@ -106,7 +106,6 @@
   button:focus-visible {
     outline: 4px auto -webkit-focus-ring-color;
   }
-
   code {
     @apply rounded-sm;
     @apply bg-whitex;

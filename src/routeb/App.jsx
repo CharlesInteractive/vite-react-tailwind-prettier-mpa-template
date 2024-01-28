@@ -13,10 +13,10 @@ function App() {
           count is {count}
         </button>
         <p>
-          Edit <code>src/App.jsx</code> and save to test HMR.
+          Edit <code>src/routeb/App.jsx</code> and save to test HMR.
         </p>
         <p className="read-the-docs">
-          Click on the Vite and React logos to learn more.
+          Click on the Vite, React and Tailwind CSS logos to learn more.
         </p>
       </div>
     </>

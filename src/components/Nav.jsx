@@ -1,4 +1,5 @@
 import viteLogo from "/vite.svg";
+import tailwindcssLogo from "/tailwindcss.svg";
 import reactLogo from "../assets/react.svg";
 const Nav = () => {
   return (
@@ -20,7 +21,7 @@ const Nav = () => {
             </a>
           </nav>
         </header>
-        <div className="container mx-auto flex justify-center p-2">
+        <div className="container mx-auto flex items-center justify-center p-2 ">
           <a
             href="https://vitejs.dev"
             className="mr-5 block w-24"
@@ -31,11 +32,23 @@ const Nav = () => {
           </a>
           <a
             href="https://react.dev"
-            className="block w-24"
+            className="mr-5 block w-24"
             target="_blank"
             rel="noreferrer"
           >
             <img src={reactLogo} className="w-full" alt="React logo" />
+          </a>
+          <a
+            href="https://tailwindcss.com/"
+            className="mr-5 block w-24"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <img
+              src={tailwindcssLogo}
+              className="w-full"
+              alt="Tailwindcss logo"
+            />
           </a>
         </div>
       </div>
