@@ -54,9 +54,8 @@
   h1 {
     @apply text-5xl;
 
-    @apply tracking-wider;
     @apply mb-4;
-    @apply font-black;
+    @apply font-bold;
   }
   h2 {
     @apply text-2xl;
@@ -68,10 +67,9 @@
     @apply uppercase;
     @apply font-bold;
   }
-  p,
-  ul {
+  p {
     @apply text-base;
-    @apply mb-1;
+    @apply mb-5;
   }
   p a {
     @apply font-bold;
@@ -107,10 +105,22 @@
     outline: 4px auto -webkit-focus-ring-color;
   }
   code {
-    @apply rounded-sm;
+    @apply rounded-md;
     @apply bg-whitex;
     @apply dark:bg-blackx;
     @apply px-2;
     @apply py-1;
+  }
+  ul,
+  ol {
+    @apply ml-5;
+    @apply mb-5;
+    @apply text-base;
+  }
+  ul {
+    @apply list-disc;
+  }
+  ol {
+    @apply list-decimal;
   }
 }
