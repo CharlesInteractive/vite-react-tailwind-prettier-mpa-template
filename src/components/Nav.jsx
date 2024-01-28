@@ -8,7 +8,7 @@ const Nav = () => {
         <header className="flex justify-center p-2">
           <nav className="text-white">
             <a href="/" className="mr-5">
-              Home
+              Root
             </a>
             <a href="/routea/" className="mr-5">
               Route A
@@ -40,7 +40,7 @@ const Nav = () => {
           </a>
           <a
             href="https://tailwindcss.com/"
-            className="mr-5 block w-24"
+            className="block w-24"
             target="_blank"
             rel="noreferrer"
           >
