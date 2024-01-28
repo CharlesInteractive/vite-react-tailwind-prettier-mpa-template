@@ -14,8 +14,7 @@ function App() {
         </button>
         <p>
           Edit <code>src/routeb/App.jsx</code> and save to test HMR.
-        </p>
-        <p className="read-the-docs">
+          <br />
           Click on the Vite, React and Tailwind CSS logos to learn more.
         </p>
       </div>
