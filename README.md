@@ -36,8 +36,9 @@ This template has been configured with all of the tools required to create a Mul
 ### Dev Loop
 
 - `lint` - run the linter
-- `build` - build the project files for distribution
 - `dev` - run the local development server
+- `build` - build the project files for distribution
+- `preview` - preview the build locally
 
 ### Multi Page Application
 
@@ -58,9 +59,9 @@ build: {
 },
 ```
 
-### Tailwind
+### Tailwind CSS
 
-The default project is styled with preconfigured Tailwind directives and layers. Learn more about Tailwind [here](https://tailwindcss.com/).
+The default project is styled with preconfigured Tailwind directives and layers. Learn more about Tailwind CSS [here](https://tailwindcss.com/).
 
 A font pack is also included (Nunito Sans) along with its [Open Font License](./src/public/fonts/Nunito_Sans/OFL.txt).
 
