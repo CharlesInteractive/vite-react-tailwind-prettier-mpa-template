@@ -1,12 +1,12 @@
 import { useState } from "react";
-import Nav from "../components/Nav";
+import Header from "../components/Header";
 
 function App() {
   const [count, setCount] = useState(0);
 
   return (
     <>
-      <Nav />
+      <Header />
       <div className="container mx-auto mt-12 p-2 text-center">
         <h1>Route B</h1>
         <button className="mb-8" onClick={() => setCount((count) => count + 1)}>

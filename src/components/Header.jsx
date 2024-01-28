@@ -1,7 +1,7 @@
 import viteLogo from "/vite.svg";
 import tailwindcssLogo from "/tailwindcss.svg";
 import reactLogo from "../assets/react.svg";
-const Nav = () => {
+const Header = () => {
   return (
     <>
       <div className="align-center container mx-auto mt-12 justify-center p-2">
@@ -55,4 +55,4 @@ const Nav = () => {
     </>
   );
 };
-export default Nav;
+export default Header;
