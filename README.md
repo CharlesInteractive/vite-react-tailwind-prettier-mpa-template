@@ -13,7 +13,7 @@ This template has been configured with all of the tools required to create a Mul
 ## Screenshot
 
 <p align="center">
-    <img src="screenshot.jpg" width="900" height="550" alt="screenshot" style="width: 100%; max-width: 900px; height: auto;">
+    <img src="screenshot.jpg" alt="screenshot" style="width: 100%; max-width: 900px; height: auto;">
     <br>
     <br>
 </p>
