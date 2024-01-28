@@ -1,0 +1,1 @@
+# vite-react-tailwind-prettier-mpa-template
