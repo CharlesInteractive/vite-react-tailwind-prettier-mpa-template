@@ -1,7 +1,9 @@
 # Vite React Tailwind Prettier MPA Template
 
 <p align="center">
-    <img src="./src/public/vite.svg" width="240" height="240" alt="vite">
+    <img src="./src/public/vite.svg" width="110" height="110" alt="vite">
+    <img src="./src/assets/react.svg" width="110" height="110" alt="react">
+    <img src="./src/public/tailwindcss.svg" width="110" height="110" alt="tailwindcss">
     <br>
     <br>
 </p>
@@ -37,9 +39,15 @@ This template has been configured with all of the tools required to create a Mul
 - `build` - build the project files for distribution
 - `dev` - run the local development server
 
+### Tailwind
+
+The default project is styled with preconfigured Tailwind directives and layers. Learn more about Tailwind [here](https://tailwindcss.com/).
+
+A font pack is also included (Nunito Sans) along with its [Open Font License](./src/public/fonts/Nunito_Sans/OFL.txt).
+
 ## Contributing
 
-Feel free to [open an issue](https://github.com/CharlesInteractive/vite-react-tailwind-prettier-mpa-template/issues/new) or create a PR if you'd like to contribute 🙌
+Feel free to [open an issue](https://github.com/CharlesInteractive/vite-react-tailwind-prettier-mpa-template/issues/new) or create a PR if you'd like to contribute.
 
 ## License
 
