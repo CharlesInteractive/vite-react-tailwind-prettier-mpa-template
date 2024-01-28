@@ -39,6 +39,25 @@ This template has been configured with all of the tools required to create a Mul
 - `build` - build the project files for distribution
 - `dev` - run the local development server
 
+### Multi Page Application
+
+Example pages have been added. To add your own, create the necessary folder inside `/src` and at it to your `vite.config.js`.
+
+```
+build: {
+  outDir,
+  emptyOutDir: true,
+  rollupOptions: {
+    input: {
+      main: resolve(root, "index.html"),
+      routea: resolve(root, "routea", "index.html"),
+      routeb: resolve(root, "routeb", "index.html"),
+      routec: resolve(root, "routec", "index.html"),
+    },
+  },
+},
+```
+
 ### Tailwind
 
 The default project is styled with preconfigured Tailwind directives and layers. Learn more about Tailwind [here](https://tailwindcss.com/).
