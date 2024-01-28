@@ -1,0 +1,117 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  @font-face {
+    font-family: NunitoSans;
+    font-weight: 400;
+    src: url(/fonts/Nunito_Sans/NunitoSans-Italic.ttf) format("truetype");
+    font-display: swap;
+  }
+  @font-face {
+    font-family: NunitoSans;
+    font-weight: 400;
+    src: url(/fonts/Nunito_Sans/NunitoSans-Regular.ttf) format("truetype");
+    font-display: swap;
+  }
+  @font-face {
+    font-family: NunitoSans;
+    font-weight: 700;
+    src: url(/fonts/Nunito_Sans/NunitoSans-BoldItalic.ttf) format("truetype");
+    font-display: swap;
+  }
+  @font-face {
+    font-family: NunitoSans;
+    font-weight: 700;
+    src: url(/fonts/Nunito_Sans/NunitoSans-Bold.ttf) format("truetype");
+    font-display: swap;
+  }
+  @font-face {
+    font-family: NunitoSans;
+    font-weight: 900;
+    src: url(https://blackiceint.b-cdn.net/fonts/Nunito_Sans/NunitoSans-Black.ttf)
+      format("truetype");
+    font-display: swap;
+  }
+  html {
+    @apply bg-white;
+    @apply dark:bg-black;
+  }
+  html,
+  body {
+    @apply text-base;
+    @apply text-black;
+    @apply dark:text-white;
+    @apply leading-3;
+  }
+  @screen sm {
+    html,
+    body {
+      @apply text-xl;
+    }
+  }
+  h1 {
+    @apply text-5xl;
+    @apply uppercase;
+    @apply tracking-wide;
+    @apply mb-4;
+    @apply font-black;
+  }
+  h2 {
+    @apply text-2xl;
+    @apply font-bold;
+  }
+  h3,
+  label {
+    @apply text-lg;
+    @apply uppercase;
+    @apply font-bold;
+  }
+  p,
+  ul {
+    @apply text-base;
+    @apply mb-1;
+  }
+  p a {
+    @apply font-bold;
+    @apply text-purple;
+  }
+  p a:hover {
+    @apply text-purplex;
+  }
+  header nav a {
+    @apply font-bold;
+    @apply uppercase;
+    @apply text-purple;
+  }
+  header nav a:hover {
+    @apply text-purplex;
+  }
+  button {
+    @apply rounded-md;
+    @apply border-2;
+    @apply border-transparent;
+    @apply py-2;
+    @apply px-8;
+    @apply cursor-pointer;
+    @apply bg-whitex;
+    @apply dark:bg-blackx;
+    @apply transition-all;
+  }
+  button:hover {
+    @apply border-purple;
+  }
+  button:focus,
+  button:focus-visible {
+    outline: 4px auto -webkit-focus-ring-color;
+  }
+
+  code {
+    @apply rounded-sm;
+    @apply bg-whitex;
+    @apply dark:bg-blackx;
+    @apply px-2;
+    @apply py-1;
+  }
+}
