@@ -44,6 +44,7 @@
     @apply text-black;
     @apply dark:text-white;
     @apply leading-3;
+    @apply font-NunFont;
   }
   @screen sm {
     html,
@@ -53,17 +54,19 @@
   }
   h1 {
     @apply text-5xl;
-
+    @apply tracking-wide;
     @apply mb-4;
-    @apply font-bold;
+    @apply font-black;
   }
   h2 {
     @apply text-2xl;
+    @apply tracking-wide;
     @apply font-bold;
   }
   h3,
   label {
     @apply text-lg;
+    @apply tracking-wide;
     @apply uppercase;
     @apply font-bold;
   }

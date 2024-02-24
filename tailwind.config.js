@@ -19,6 +19,10 @@ export default {
         purple: "#646cff",
         purplex: "#535bf2",
       },
+      fontFamily: {
+        NunFont: ["NunitoSans"],
+        PlayFont: ["Playfair"],
+      },
     },
     container: {
       screens: {
