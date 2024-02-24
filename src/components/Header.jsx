@@ -1,22 +1,34 @@
 import viteLogo from "/vite.svg";
 import tailwindcssLogo from "/tailwindcss.svg";
 import reactLogo from "../assets/react.svg";
+
+const pagePath = window.location.pathname.replace(/\//g, "");
+
 const Header = () => {
   return (
     <>
       <div className="align-center container mx-auto mt-12 justify-center p-2">
         <header className="flex justify-center p-2">
-          <nav className="text-white">
-            <a href="/" className="mr-5">
+          <nav>
+            <a href="/" className={`mr-5 ${pagePath === "" ? "active" : ""}`}>
               Root
             </a>
-            <a href="/routea/" className="mr-5">
+            <a
+              href="/routea/"
+              className={`mr-5 ${pagePath === "routea" ? "active" : ""}`}
+            >
               Route A
             </a>
-            <a href="/routeb/" className="mr-5">
+            <a
+              href="/routeb/"
+              className={`mr-5 ${pagePath === "routeb" ? "active" : ""}`}
+            >
               Route B
             </a>
-            <a href="/routec/" className="">
+            <a
+              href="/routec/"
+              className={`${pagePath === "routec" ? "active" : ""}`}
+            >
               Route C
             </a>
           </nav>
