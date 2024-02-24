@@ -17,7 +17,7 @@ export default {
         white: "#f2f2f2",
         whitex: "#e6e6e6",
         purple: "#646cff",
-        purplex: "#535bf2",
+        blue: "#06b6d4",
       },
       fontFamily: {
         NunFont: ["NunitoSans"],

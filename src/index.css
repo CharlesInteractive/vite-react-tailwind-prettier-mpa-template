@@ -57,18 +57,19 @@
     @apply tracking-wide;
     @apply mb-4;
     @apply font-black;
+    @apply uppercase;
   }
   h2 {
     @apply text-2xl;
     @apply tracking-wide;
-    @apply font-bold;
+    @apply font-extrabold;
   }
   h3,
   label {
     @apply text-lg;
     @apply tracking-wide;
     @apply uppercase;
-    @apply font-bold;
+    @apply font-extrabold;
   }
   p {
     @apply text-base;
@@ -79,15 +80,20 @@
     @apply text-purple;
   }
   p a:hover {
-    @apply text-purplex;
+    @apply text-blue;
   }
   header nav a {
-    @apply font-bold;
+    @apply font-extrabold;
+    @apply tracking-wide;
     @apply uppercase;
-    @apply text-purple;
+    @apply dark:text-white;
+    @apply transition-all;
   }
   header nav a:hover {
-    @apply text-purplex;
+    @apply text-blue;
+  }
+  header nav a.active {
+    @apply text-purple;
   }
   button {
     @apply rounded-md;
@@ -99,6 +105,7 @@
     @apply bg-whitex;
     @apply dark:bg-blackx;
     @apply transition-all;
+    @apply font-bold;
   }
   button:hover {
     @apply border-purple;
