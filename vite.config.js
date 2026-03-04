@@ -14,6 +14,7 @@ export default defineConfig({
   root,
   plugins: [react()],
   publicDir: resolve(root, "public"),
+  cssCodeSplit: true,
   build: {
     outDir,
     emptyOutDir: true,
