@@ -50,7 +50,7 @@ Every entry point must be registered in `vite.config.js` under
   `@import "tailwindcss";` and `@config "../tailwind.config.js";`.
 - Global element styles (`h1`, `p`, `button`, nav, etc.) are defined with `@apply`
   inside `@layer base` in `src/index.css`.
-- The theme (custom `colors`, `fontFamily` — `NunFont`/`PlayFont`, container `screens`,
+- The theme (custom `colors`, `fontFamily` — `NunFont`, container `screens`,
   etc.) lives in `tailwind.config.js`, loaded via the `@config` directive (JS config
   is still supported in v4; the theme was not migrated to CSS `@theme`).
 - Nunito Sans font pack is in `src/public/fonts/` and declared via `@font-face`.

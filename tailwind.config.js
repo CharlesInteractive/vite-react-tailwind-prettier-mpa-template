@@ -16,9 +16,9 @@ export default {
       },
       colors: {
         black: "#242424",
-        blackx: "#1a1a1a",
+        "black-muted": "#1a1a1a",
         white: "#f2f2f2",
-        whitex: "#e6e6e6",
+        "white-muted": "#e6e6e6",
         purple: "#646cff",
         blue: "#06b6d4",
       },
