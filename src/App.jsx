@@ -1,12 +1,14 @@
+// Root page (/) component. Each MPA page has its own App.jsx; this one doubles as
+// the template's landing/docs page.
 import { useState } from "react";
-import Nav from "./components/Header";
+import Header from "./components/Header";
 
 function App() {
   const [count, setCount] = useState(0);
 
   return (
     <>
-      <Nav />
+      <Header />
       <div className="container mx-auto mt-12 p-2">
         <h1 className="text-center">Vite + React + Tailwind CSS</h1>
         <h2 className="mb-5 text-center">
@@ -46,13 +48,16 @@ function App() {
           <h3>Dev Loop</h3>
           <ul>
             <li>
-              <code>lint</code> - run the linter
-            </li>
-            <li>
               <code>dev</code> - run the local development server
             </li>
             <li>
               <code>build</code> - build the project files for distribution
+            </li>
+            <li>
+              <code>lint</code> - run the linter
+            </li>
+            <li>
+              <code>format</code> - format the codebase with Prettier
             </li>
             <li>
               <code>preview</code> - preview the build locally
@@ -61,7 +66,8 @@ function App() {
           <h3>Multi Page Application</h3>
           <p>
             Example pages have been added. To add your own, create the necessary
-            folder inside <code>/src</code> and at it to your vite.config.js.
+            folder inside <code>/src</code>, add it to your vite.config.js, and
+            add a nav link in <code>src/components/Header.jsx</code>.
           </p>
           <h3>Tailwind CSS</h3>
           <p>

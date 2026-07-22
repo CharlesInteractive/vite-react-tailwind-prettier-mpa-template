@@ -1,3 +1,5 @@
+// Entry point for the Route A page. Mounts this page's App into #root.
+// reloadOnChunkError is imported first to install the stale-deploy safety net.
 import "../reloadOnChunkError.js";
 import React from "react";
 import ReactDOM from "react-dom/client";

@@ -1,6 +1,9 @@
+// Tailwind theme lives here (JS config, loaded via the `@config` directive in
+// src/index.css) rather than in a CSS `@theme` block. Custom colors, fonts, and
+// container breakpoints defined below are what the `@apply` rules in index.css use.
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx,jsx}"],
+  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
       zIndex: {
@@ -21,7 +24,6 @@ export default {
       },
       fontFamily: {
         NunFont: ["NunitoSans"],
-        PlayFont: ["Playfair"],
       },
     },
     container: {
@@ -32,11 +34,6 @@ export default {
         xl: "900px",
         "2xl": "1000px",
       },
-    },
-  },
-  variants: {
-    extend: {
-      margin: ["last"],
     },
   },
   plugins: [],

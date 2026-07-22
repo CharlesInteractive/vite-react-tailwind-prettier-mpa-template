@@ -10,6 +10,10 @@
 
 This template has been configured with all of the tools required to create a Multi Page React Application using TailwindCSS with Vite.
 
+Each "page"/route is a fully independent HTML entry point with its own React root — there
+is no client-side router. Navigation between pages is plain `<a href>` links that trigger
+full page loads.
+
 ## Screenshot
 
 <p align="center">
@@ -26,31 +30,41 @@ This template has been configured with all of the tools required to create a Mul
 ![Prettier](https://img.shields.io/badge/formatter-prettier-F8BC45?style=flat&logo=prettier)
 ![Vite](https://img.shields.io/badge/build-vite-A855F7?style=flat&logo=vite)
 
-- [React](https://reactjs.org/)
-- [TailwindCSS](https://tailwindcss.com/) for utility CSS classes
-- [ESLint](https://eslint.org/) configured with some initial rules
-- [Prettier](https://prettier.io/) to enforce consistent code style
-- [Vite](https://vitejs.dev/) to build the project for development or production
+- [React](https://reactjs.org/) 19
+- [TailwindCSS](https://tailwindcss.com/) v4 for utility CSS classes (via `@tailwindcss/postcss`)
+- [ESLint](https://eslint.org/) 9 (flat config) configured with some initial rules
+- [Prettier](https://prettier.io/) 3 to enforce consistent code style (auto-sorts Tailwind classes)
+- [Vite](https://vitejs.dev/) 8 to build the project for development or production
 
 ## Development
 
 ### Setup
 
 1. `git clone https://github.com/CharlesInteractive/vite-react-tailwind-prettier-mpa-template.git`
-2. Run `npm install` to install all of the project's dependencies
-3. Run the local development server: `npm run dev`
-4. Build the project for production: `npm run build`
+2. Use the Node version pinned in `.nvmrc` (`v21.6.1`), e.g. `nvm use`
+3. Run `npm install` to install all of the project's dependencies
+4. Run the local development server: `npm run dev`
+5. Build the project for production: `npm run build`
 
 ### Dev Loop
 
-- `lint` - run the linter
-- `dev` - run the local development server
-- `build` - build the project files for distribution
-- `preview` - preview the build locally
+- `dev` - run the local development server (HMR)
+- `build` - build the project files for distribution (to `dist/`)
+- `lint` - run ESLint (uses `--max-warnings 0`, so warnings fail the run)
+- `format` - format the codebase with Prettier
+- `preview` - preview the production build locally
 
 ### Multi Page Application
 
-Example pages have been added. To add your own, create the necessary folder inside `/src` and at it to your `vite.config.js`.
+Source lives in `src/` (Vite's `root` is set to `src/`). Example pages `routea`, `routeb`,
+and `routec` are self-contained and meant to be copied, edited, or deleted. Each page is a
+folder with its own `index.html` + `main.jsx` + `App.jsx`.
+
+To add your own page, update **three** places:
+
+1. Create `src/<name>/` with `index.html`, `main.jsx`, `App.jsx` (copy an existing route).
+2. Register the entry in `vite.config.js` under `build.rollupOptions.input`.
+3. Add a nav link to `src/components/Header.jsx`.
 
 ```
 build: {
@@ -72,6 +86,19 @@ build: {
 The default project is styled with preconfigured Tailwind directives and layers. Learn more about Tailwind CSS [here](https://tailwindcss.com/).
 
 A font pack is also included (Nunito Sans) along with its [Open Font License](./src/public/fonts/Nunito_Sans/OFL.txt).
+
+## Deployment
+
+Assets are emitted with content-hashed filenames, so old chunks disappear on each deploy.
+To avoid the "white screen after deploy" problem (a stale, cached `index.html` requesting
+chunk hashes that no longer exist):
+
+- Serve the HTML entries with `Cache-Control: no-cache` (hashed assets under `dist/assets/`
+  can be cached long-term). Configure this at your host/CDN.
+- `src/reloadOnChunkError.js` (imported first by every entry) is a client-side safety net
+  that does a one-time reload if a stale chunk fails to load after a deploy.
+
+See [`CLAUDE.md`](./CLAUDE.md) for the full details.
 
 ## Contributing
 

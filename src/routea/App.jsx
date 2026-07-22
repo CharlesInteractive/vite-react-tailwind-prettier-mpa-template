@@ -1,3 +1,6 @@
+// Example page (Route A). The routea/routeb/routec folders are self-contained
+// example pages meant to be copied, edited, or deleted — each has its own
+// index.html + main.jsx + App.jsx. See CLAUDE.md for how to add a page.
 import { useState } from "react";
 import Header from "../components/Header";
 
