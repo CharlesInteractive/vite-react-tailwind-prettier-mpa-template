@@ -1,37 +1,66 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+
+@config '../tailwind.config.js';
+
+/*
+  The default border color has changed to `currentcolor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
+}
 
 @layer base {
   @font-face {
     font-family: NunitoSans;
     font-weight: 400;
-    src: url(/fonts/Nunito_Sans/NunitoSans-Italic.ttf) format("truetype");
-    font-display: swap;
-  }
-  @font-face {
-    font-family: NunitoSans;
-    font-weight: 400;
+    font-style: normal;
     src: url(/fonts/Nunito_Sans/NunitoSans-Regular.ttf) format("truetype");
     font-display: swap;
   }
   @font-face {
     font-family: NunitoSans;
-    font-weight: 700;
-    src: url(/fonts/Nunito_Sans/NunitoSans-BoldItalic.ttf) format("truetype");
+    font-weight: 400;
+    font-style: italic;
+    src: url(/fonts/Nunito_Sans/NunitoSans-Italic.ttf) format("truetype");
     font-display: swap;
   }
   @font-face {
     font-family: NunitoSans;
     font-weight: 700;
+    font-style: normal;
     src: url(/fonts/Nunito_Sans/NunitoSans-Bold.ttf) format("truetype");
     font-display: swap;
   }
   @font-face {
     font-family: NunitoSans;
+    font-weight: 700;
+    font-style: italic;
+    src: url(/fonts/Nunito_Sans/NunitoSans-BoldItalic.ttf) format("truetype");
+    font-display: swap;
+  }
+  @font-face {
+    font-family: NunitoSans;
+    font-weight: 800;
+    font-style: normal;
+    src: url(/fonts/Nunito_Sans/NunitoSans-ExtraBold.ttf) format("truetype");
+    font-display: swap;
+  }
+  @font-face {
+    font-family: NunitoSans;
     font-weight: 900;
-    src: url(https://blackiceint.b-cdn.net/fonts/Nunito_Sans/NunitoSans-Black.ttf)
-      format("truetype");
+    font-style: normal;
+    src: url(/fonts/Nunito_Sans/NunitoSans-Black.ttf) format("truetype");
     font-display: swap;
   }
   html {
@@ -46,7 +75,7 @@
     @apply leading-3;
     @apply font-NunFont;
   }
-  @screen sm {
+  @media (width >= theme(--breakpoint-sm)) {
     html,
     body {
       @apply text-xl;

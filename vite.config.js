@@ -10,6 +10,13 @@ const root = resolve(__dirname, "src");
 const outDir = resolve(__dirname, "dist");
 
 // https://vitejs.dev/config/
+//
+// Deploy note: JS/CSS assets are emitted with content hashes in their filenames
+// (Vite default) for long-term caching + cache busting. For this to work safely,
+// the HTML entry files MUST be served with `Cache-Control: no-cache` so browsers
+// always fetch fresh HTML referencing the current asset hashes. As a client-side
+// safety net, src/reloadOnChunkError.js reloads once if a stale chunk fails to
+// load after a new deploy. See CLAUDE.md "Deployment".
 export default defineConfig({
   root,
   plugins: [react()],

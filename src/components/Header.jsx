@@ -33,7 +33,7 @@ const Header = () => {
             </a>
           </nav>
         </header>
-        <div className="container mx-auto flex items-center justify-center p-2 ">
+        <div className="container mx-auto flex items-center justify-center p-2">
           <a
             href="https://vitejs.dev"
             className="mr-5 block w-24"
