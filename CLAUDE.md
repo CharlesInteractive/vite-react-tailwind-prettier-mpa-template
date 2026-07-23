@@ -25,6 +25,8 @@ Node version is pinned in `.nvmrc`.
 - `npm run build` — production build to `dist/`
 - `npm run preview` — serve the production build locally
 - `npm run lint` — ESLint (`--max-warnings 0`, so warnings fail)
+- `npm run test` — run the Vitest suite once
+- `npm run test:watch` — Vitest in watch mode
 
 ## MPA structure
 
@@ -35,14 +37,28 @@ Source lives in `src/` (Vite `root` is set to `src/` in `vite.config.js`).
   layout (`index.html` + `main.jsx` + `App.jsx`). Each `main.jsx` mounts its own
   React root into `#root` and imports the shared `../index.css`.
 - `src/components/Header.jsx` — shared nav; highlights the active link by comparing
-  `window.location.pathname`.
+  `window.location.pathname`. The link list lives in `src/components/navLinks.js`
+  (its own module so it can be shared with the route-integrity test without tripping
+  `react-refresh/only-export-components`).
 
 Every entry point must be registered in `vite.config.js` under
 `build.rollupOptions.input`. **To add a new page:**
 
 1. Create `src/<name>/` with `index.html`, `main.jsx`, `App.jsx` (copy an existing route).
 2. Add `<name>: resolve(root, "<name>", "index.html")` to the `input` map in `vite.config.js`.
-3. Add a nav link in `src/components/Header.jsx`.
+3. Add a nav link to the `navLinks` array in `src/components/navLinks.js`.
+
+`tests/routes.test.js` enforces that these three stay in sync, so a missed step fails
+the test suite.
+
+## Testing
+
+- **Vitest** + **Testing Library** in a `jsdom` environment. `vitest.config.js` runs from
+  the project root (not `src/`, unlike the build) and loads `vitest.setup.js` (jest-dom
+  matchers + `cleanup`). Tests import from `vitest` explicitly (no globals) so ESLint stays
+  clean at `--max-warnings 0`.
+- Tests are colocated as `*.test.jsx`/`*.test.js` next to the code, plus
+  `tests/routes.test.js` guarding the MPA "three places" invariant above.
 
 ## Styling (Tailwind 4)
 

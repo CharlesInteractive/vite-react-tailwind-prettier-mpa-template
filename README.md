@@ -1,6 +1,12 @@
 # Vite React Tailwind Prettier MPA Template
 
 <p align="center">
+    <a href="https://github.com/CharlesInteractive/vite-react-tailwind-prettier-mpa-template/actions/workflows/ci.yml">
+        <img src="https://github.com/CharlesInteractive/vite-react-tailwind-prettier-mpa-template/actions/workflows/ci.yml/badge.svg" alt="CI status">
+    </a>
+</p>
+
+<p align="center">
     <img src="./src/public/vite.svg" width="110" height="110" alt="vite">
     <img src="./src/assets/react.svg" width="110" height="110" alt="react">
     <img src="./src/public/tailwindcss.svg" width="110" height="110" alt="tailwindcss">
@@ -41,7 +47,7 @@ full page loads.
 ### Setup
 
 1. `git clone https://github.com/CharlesInteractive/vite-react-tailwind-prettier-mpa-template.git`
-2. Use the Node version pinned in `.nvmrc` (`v21.6.1`), e.g. `nvm use`
+2. Use the Node version pinned in `.nvmrc` (`v22`), e.g. `nvm use`
 3. Run `npm install` to install all of the project's dependencies
 4. Run the local development server: `npm run dev`
 5. Build the project for production: `npm run build`
@@ -51,8 +57,26 @@ full page loads.
 - `dev` - run the local development server (HMR)
 - `build` - build the project files for distribution (to `dist/`)
 - `lint` - run ESLint (uses `--max-warnings 0`, so warnings fail the run)
+- `test` - run the test suite once (Vitest)
+- `test:watch` - run the tests in watch mode
 - `format` - format the codebase with Prettier
 - `preview` - preview the production build locally
+
+### Testing
+
+Tests run on [Vitest](https://vitest.dev/) with
+[Testing Library](https://testing-library.com/) in a `jsdom` environment. Run them with
+`npm test` (or `npm run test:watch`). What's covered:
+
+- **`src/components/Header.test.jsx`** - the active-link logic (`window.location`
+  drives which nav link is highlighted, since there is no router).
+- **`src/reloadOnChunkError.test.js`** - the stale-deploy safety net reloads once and is
+  guarded against reload loops.
+- **`tests/routes.test.js`** - the "add a page = update three places" invariant: every
+  `vite.config.js` entry has its folder, and `navLinks` stays in sync with the routes.
+
+CI (`.github/workflows/ci.yml`) runs `lint`, `test`, and `build` on every push and pull
+request, using the Node version from `.nvmrc`.
 
 ### Multi Page Application
 
@@ -64,7 +88,7 @@ To add your own page, update **three** places:
 
 1. Create `src/<name>/` with `index.html`, `main.jsx`, `App.jsx` (copy an existing route).
 2. Register the entry in `vite.config.js` under `build.rollupOptions.input`.
-3. Add a nav link to `src/components/Header.jsx`.
+3. Add a nav link to the `navLinks` array in `src/components/navLinks.js`.
 
 ```
 build: {
