@@ -4,16 +4,7 @@
 import viteLogo from "/vite.svg";
 import tailwindcssLogo from "/tailwindcss.svg";
 import reactLogo from "../assets/react.svg";
-
-// The nav links. When you add a new page you update three places: the src/<name>
-// folder, the input map in vite.config.js, and this array. `href` is the URL and
-// `match` is the first path segment used to highlight the active link (see below).
-const navLinks = [
-  { href: "/", label: "Root", match: "" },
-  { href: "/routea/", label: "Route A", match: "routea" },
-  { href: "/routeb/", label: "Route B", match: "routeb" },
-  { href: "/routec/", label: "Route C", match: "routec" },
-];
+import { navLinks } from "./navLinks";
 
 const Header = () => {
   // Active-link matching: compare the first path segment of the current URL against
