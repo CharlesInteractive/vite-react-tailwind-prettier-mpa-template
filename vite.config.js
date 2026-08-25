@@ -28,7 +28,7 @@ export default defineConfig({
     rollupOptions: {
       // One entry per page. Adding a page = update three places: create the
       // src/<name>/ folder, add it here, and add a nav link in
-      // src/components/Header.jsx. (See CLAUDE.md "MPA structure".)
+      // src/components/navLinks.js. (See CLAUDE.md "MPA structure".)
       input: {
         main: resolve(root, "index.html"),
         routea: resolve(root, "routea", "index.html"),
