@@ -30,8 +30,17 @@ export default [
       ...reactHooks.configs.recommended.rules,
       "react-refresh/only-export-components": [
         "warn",
-        { allowConstantExport: true },
+        // `meta` is the per-page SEO metadata each App.jsx exports for the
+        // build-time prerender (see scripts/prerender.js). It is never read at
+        // runtime, so it does not affect fast refresh.
+        { allowConstantExport: true, allowExportNames: ["meta"] },
       ],
     },
+  },
+  {
+    // Build tooling and tests run in Node, not the browser: they need `process`,
+    // `console` and friends.
+    files: ["scripts/**/*.js", "*.config.js", "tests/**/*.js"],
+    languageOptions: { globals: globals.node },
   },
 ];

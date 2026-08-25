@@ -1,17 +1,18 @@
 // Shared navigation + logo bar rendered at the top of every page. Because this is
 // an MPA (each page is a full document load), the "active" link is decided from
-// window.location — there is no client-side router.
+// the current path — there is no client-side router.
 import viteLogo from "/vite.svg";
 import tailwindcssLogo from "/tailwindcss.svg";
 import reactLogo from "../assets/react.svg";
 import { navLinks } from "./navLinks";
+import { usePathname } from "./pathname";
 
 const Header = () => {
   // Active-link matching: compare the first path segment of the current URL against
   // each link's `match`. Using only the first segment means nested paths like
   // /routea/sub still highlight "Route A" correctly.
-  const currentSegment =
-    window.location.pathname.split("/").filter(Boolean)[0] ?? "";
+  // usePathname() works under the prerender too, where `window` does not exist.
+  const currentSegment = usePathname().split("/").filter(Boolean)[0] ?? "";
 
   return (
     <>

@@ -1,10 +1,13 @@
 // Verifies the MPA active-link logic: Header has no router, so the "active" link
-// is derived from window.location.pathname. For each page we set the path and
-// assert exactly the matching nav link carries the `active` class.
+// comes from usePathname() — window.location.pathname in the browser, or the
+// route supplied by PathnameContext during the build-time prerender. For each
+// page we set the path and assert exactly the matching nav link carries the
+// `active` class.
 import { describe, it, expect } from "vitest";
 import { render, screen } from "@testing-library/react";
 import Header from "./Header";
 import { navLinks } from "./navLinks";
+import { PathnameContext } from "./pathname";
 
 describe("Header active link", () => {
   it.each(navLinks)(
@@ -31,6 +34,22 @@ describe("Header active link", () => {
     // highlight their route.
     expect(screen.getByRole("link", { name: "Route A" })).toHaveClass("active");
     expect(screen.getByRole("link", { name: "Root" })).not.toHaveClass(
+      "active",
+    );
+  });
+
+  it("prefers the path from PathnameContext over window.location", () => {
+    // What the prerender does: window.location is irrelevant on the server, so
+    // the provided route has to win.
+    window.history.pushState({}, "", "/routea/");
+    render(
+      <PathnameContext.Provider value="/routec/">
+        <Header />
+      </PathnameContext.Provider>,
+    );
+
+    expect(screen.getByRole("link", { name: "Route C" })).toHaveClass("active");
+    expect(screen.getByRole("link", { name: "Route A" })).not.toHaveClass(
       "active",
     );
   });
