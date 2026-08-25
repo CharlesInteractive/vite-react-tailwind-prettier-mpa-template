@@ -3,7 +3,10 @@
 // container breakpoints defined below are what the `@apply` rules in index.css use.
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
+  // Tailwind 4 auto-detects sources relative to the CSS file, so this list is
+  // belt-and-braces rather than load-bearing — page `index.html` files are
+  // scanned either way. Kept accurate so it documents where classes live.
+  content: ["./src/**/*.{html,js,ts,jsx,tsx}"],
   theme: {
     extend: {
       zIndex: {
